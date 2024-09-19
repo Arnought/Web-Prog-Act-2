@@ -1,18 +1,34 @@
 import './App.css';
 import './components/style.css';
-import Navbar from './components/Navbar';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import Counter from './components/Counter';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
         <Router>
-            <Navbar />
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact</Link>
+                    </li>
+                    <li>
+                        <Link to="/counter">Counter</Link>
+                    </li>
+                </ul>
+            </nav>
+
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -21,7 +37,6 @@ function App() {
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
-        
     );
 }
 
